@@ -1,12 +1,69 @@
 * {
   box-sizing: border-box;
+  margin: 0px
+}
+
+body {
+  height: 1000px;
+  background-color: black;
+}
+
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: greenyellow;
+  height: 10%;
+}
+header h1 {
+  font-size: 50px;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  background: url("../img/monster-bg.png") no-repeat center center;
+  background-size: 60%;
+  background-color: black;
+  height: 80%;
+}
+
+main aside h2 {
+  color: greenyellow;
+  text-align: center;
+  font-size: 30px;
+}
+
+main aside p {
+  color: greenyellow;
+  text-align: center;
+}
+
+main aside span {
+  font-weight: bold;
+}
+
+main aside .player1-art, main aside .player2-art {
+  width: 300px;
+  margin: 50px auto 0px auto;
+}
+
+main aside img {
+  width: 300px;
+}
+
+.field-player1, .field-player2 {
+  width: 500px;
 }
 
 .game {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 .game .modal {
@@ -59,7 +116,7 @@
   width: 500px;
   display: flex;
   border: 1px solid black;
-  margin: auto;
+  background-color: rgb(255, 255, 255, 0.15);
 }
 
 .column {
@@ -79,8 +136,14 @@
 
 .player1 {
   background-color: black;
+  border: greenyellow 2px solid;
 }
 
 .player2 {
   background-color: greenyellow;
+  border: black 2px solid;
+}
+
+footer {
+
 }
