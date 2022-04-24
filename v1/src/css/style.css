@@ -4,6 +4,7 @@
 
 .game {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -18,16 +19,39 @@
   background-color: black;
   color: greenyellow;
 }
+
 .game .modal span {
   font-size: 25px;
   margin-left: 175px;
   font-weight: bolder;
   cursor: pointer;
 }
+
 .game .modal p {
   font-size: 16px;
   margin: 5px;
   text-align: center;
+}
+
+.game .reset-game {
+  display: none;
+  margin: 10px;
+  padding: 15px 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border: greenyellow 3px solid;
+  background-color: black;
+  color: greenyellow;
+  cursor: pointer;
+}
+
+.game .reset-game:hover {
+  border: green 3px solid;
+  color: green;
+}
+
+.game .reset-game:active {
+ color: greenyellow;
 }
 
 #table {
