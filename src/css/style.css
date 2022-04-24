@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game .modal {
+  display: none;
+  position: fixed;
+  border: greenyellow 2px solid;
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  background-color: black;
+  color: greenyellow;
+}
+.game .modal span {
+  font-size: 25px;
+  margin-left: 175px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.game .modal p {
+  font-size: 16px;
+  margin: 5px;
+  text-align: center;
+}
+
+#table {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.column {
+  height: 100%;
+}
+
+.cell {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.player1, .player2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.player1 {
+  background-color: black;
+}
+
+.player2 {
+  background-color: greenyellow;
+}
