@@ -6,6 +6,7 @@ class Board {
       this._players = players
       this._currentPlayer = this._players[0];
       this.turns = 0;
+      this.gameEnd = false;
   }
 
   get columns() {
@@ -86,39 +87,44 @@ class Board {
   }
 
   handleClick(column) {
-    let row = this.map.findIndex(row => row[column]);
-    const winnerText = document.getElementsByClassName("modal-text")[0];
-    const modal = document.getElementsByClassName("modal")[0];
-    
-    if (row === 0) {
-      winnerText.innerHTML = `Impossivel colocar peça nessa coluna.`;
-      modal.style.display = "block";
-      return
+    if (this.gameEnd === false) {
+      let row = this.map.findIndex(row => row[column]);
+      const winnerText = document.getElementsByClassName("modal-text")[0];
+      const modal = document.getElementsByClassName("modal")[0];
+      
+      if (row === 0) {
+        winnerText.innerHTML = `Impossivel colocar peça nessa coluna.`;
+        modal.style.display = "block";
+        return
+      }
+      this.turns++;
+
+      if(row === -1) {
+          row = this.rows
+      }
+
+      this.map[row - 1][column] = this.currentPlayer
+
+      const cell = new Cell(column, row, this.currentPlayer.className)
+      
+      cell.render()
+
+      if(this.isWinnableMove(column,row-1)) {
+        winnerText.innerHTML = `${this.currentPlayer.name} ganhou`;
+        modal.style.display = "block";
+        this.gameEnd = true;
+        return
+      }
+      
+      if (this.turns === this.rows * this.columns) {
+        winnerText.innerHTML = `Empate!`;
+        modal.style.display = "block";
+        this.gameEnd = true;
+        return
+      }
+
+      this.switchPlayer()
     }
-    this.turns++;
-
-    if(row === -1) {
-        row = this.rows
-    }
-
-    this.map[row - 1][column] = this.currentPlayer
-
-    const cell = new Cell(column, row, this.currentPlayer.className)
-    
-    cell.render()
-
-    if(this.isWinnableMove(column,row-1)) {
-      winnerText.innerHTML = `${this.currentPlayer.name} ganhou`;
-      modal.style.display = "block";
-      return
-    }
-    
-    if (this.turns === this.rows * this.columns) {
-      winnerText.innerHTML = `Empate!`;
-      modal.style.display = "block";
-    }
-
-    this.switchPlayer()
   }
 
   checkVertical(column, row) {
@@ -225,6 +231,7 @@ class Board {
       }
     }
     this._turns = 0;
+    this.gameEnd = false;
     const container = document.getElementById('table');
     this.renderMap(container);
   }
