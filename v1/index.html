@@ -8,15 +8,46 @@
   <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
-  <div class="game">
-    <div class="modal">
-      <span class="modal-close">&times;</span>
-      <p class="modal-text">Winner</p>
+  <header>
+    <h1>Lig4</h1>
+  </header>
+
+  <main>
+    <aside>
+      <div class="field-player1">
+        <h2 class="name-player1">Player 1</h2>
+        <p>Win count: <span class="win-player1">0</span></p>
+        <div class="player1-art">
+          <img class="image-player1" src="src/img/monster-energy-juice-mango-loco.png" alt="Imagem Player 1">
+        </div>
+      </div>
+    </aside>
+  
+    <div class="game">
+      <div class="modal">
+        <span class="modal-close">&times;</span>
+        <p class="modal-text">Winner</p>
+      </div>
+  
+      <div id="table">
+      </div>
     </div>
-    <div id="table">
-    </div>
-    <button class="reset-game">Restart</button>
-  </div>
+  
+    <aside>
+      <div class="field-player2">
+        <h2 class="name-player2">Player 2</h2>
+        <p>Win count: <span class="win-player2">0</span></p>
+        <div class="player1-art">
+          <img class="image-player2" src="src/img/monster-energy-absolutely-zero.png" alt="Imagem Player 2">
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <h5>MPN - Monter Patrocina Nós</h5>
+  </footer>
+
   <script src="src/models/player_model.js"></script>
   <script src="src/models/cell_model.js"></script>
   <script src="src/models/board_model.js"></script>
