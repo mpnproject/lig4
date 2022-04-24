@@ -91,6 +91,7 @@ class Board {
       let row = this.map.findIndex(row => row[column]);
       const winnerText = document.getElementsByClassName("modal-text")[0];
       const modal = document.getElementsByClassName("modal")[0];
+      const resetBtn = document.getElementsByClassName("reset-game")[0];
       
       if (row === 0) {
         winnerText.innerHTML = `Impossivel colocar peça nessa coluna.`;
@@ -112,6 +113,7 @@ class Board {
       if(this.isWinnableMove(column,row-1)) {
         winnerText.innerHTML = `${this.currentPlayer.name} ganhou`;
         modal.style.display = "block";
+        resetBtn.style.display = "block";
         this.gameEnd = true;
         return
       }
@@ -119,6 +121,7 @@ class Board {
       if (this.turns === this.rows * this.columns) {
         winnerText.innerHTML = `Empate!`;
         modal.style.display = "block";
+        resetBtn.style.display = "block";
         this.gameEnd = true;
         return
       }

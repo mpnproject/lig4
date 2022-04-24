@@ -10,3 +10,9 @@ modalSpan.addEventListener("click", () => {
   const modal = document.getElementsByClassName("modal")[0];
   modal.style.display = "none";
 });
+
+const resetBtn = document.getElementsByClassName("reset-game")[0];
+resetBtn.addEventListener("click", () => {
+  board.resetMap();
+  resetBtn.style.display = "none";
+});
