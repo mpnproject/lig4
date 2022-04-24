@@ -9,5 +9,4 @@ const modalSpan = document.getElementsByClassName("modal-close")[0];
 modalSpan.addEventListener("click", () => {
   const modal = document.getElementsByClassName("modal")[0];
   modal.style.display = "none";
-  board.resetMap();
 });
