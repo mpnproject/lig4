@@ -45,16 +45,24 @@ main aside span {
 }
 
 main aside .player1-art, main aside .player2-art {
+  display: flex;
+  justify-content: center;
   width: 300px;
-  margin: 50px auto 0px auto;
+  padding: 50px;
+  margin: 10px auto 0px auto;
 }
 
 main aside img {
-  width: 300px;
+  width: 150px;
 }
 
 .field-player1, .field-player2 {
   width: 500px;
+  height: 100%;
+}
+
+.player1-art:hover, .player2-art:hover {
+  background-color: rgb(255, 255, 255, 0.1);
 }
 
 .game {
