@@ -5,6 +5,7 @@ class Board {
       this._map = this.createEmptyMap()
       this._players = players
       this._currentPlayer = this._players[0];
+      this.turns = 0;
   }
 
   get columns() {
@@ -85,7 +86,16 @@ class Board {
   }
 
   handleClick(column) {
-    let row = this.map.findIndex(row => row[column])
+    let row = this.map.findIndex(row => row[column]);
+    const winnerText = document.getElementsByClassName("modal-text")[0];
+    const modal = document.getElementsByClassName("modal")[0];
+    
+    if (row === 0) {
+      winnerText.innerHTML = `Impossivel colocar peça nessa coluna.`;
+      modal.style.display = "block";
+      return
+    }
+    this.turns++;
 
     if(row === -1) {
         row = this.rows
@@ -98,12 +108,16 @@ class Board {
     cell.render()
 
     if(this.isWinnableMove(column,row-1)) {
-      const winnerText = document.getElementsByClassName("modal-text")[0];
-      const modal = document.getElementsByClassName("modal")[0];
       winnerText.innerHTML = `${this.currentPlayer.name} ganhou`;
       modal.style.display = "block";
+      return
     }
     
+    if (this.turns === this.rows * this.columns) {
+      winnerText.innerHTML = `Empate!`;
+      modal.style.display = "block";
+    }
+
     this.switchPlayer()
   }
 
@@ -210,6 +224,7 @@ class Board {
         this.map[i][j] = undefined;
       }
     }
+    this._turns = 0;
     const container = document.getElementById('table');
     this.renderMap(container);
   }
